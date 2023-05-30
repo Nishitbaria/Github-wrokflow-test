@@ -1,12 +1,25 @@
-on: [issues]
+name: Thank Contributor
+
+on:
+  issues:
+    types: [opened]
 
 jobs:
   greeting:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
     steps:
-    - uses: actions/first-interaction@v1
+    - name: Thank Contributor
+      uses: actions/github-script@v4
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Hi, thanks for taking the time to submit a issue. Great first issue!'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const issue = context.payload.issue;
+          const issueCreator = issue.user.login;
+          const issueNumber = issue.number;
+          const message = `Thank you, @${issueCreator}, for creating issue #${issueNumber}! We appreciate your contribution.`;
+          const comment = await github.issues.createComment({
+            issue_number: issueNumber,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: message
+          });
