@@ -3,7 +3,13 @@ name: Hello Github Actions
 on: [push] 
 jobs: 
     print-hello-world:
-        runs-on: ubuntu-Latest
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Hello World!"
+            - run: echo "Now I can also able to write GitHub Action Code in YMlF"
+    
+    print-hello-world-second-time:
+        runs-on: ubuntu-latest
         steps:
             - run: echo "Hello World!"
             - run: echo "Now I can also able to write GitHub Action Code in YMlF"
