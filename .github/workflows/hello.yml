@@ -8,8 +8,10 @@ jobs:
             - run: echo "Hello World!"
             - run: echo "Now I can also able to write GitHub Action Code in YMlF"
     
-    print-hello-world-second-time:
+    build: 
         runs-on: ubuntu-latest
         steps:
-            - run: echo "Hello World!"
-            - run: echo "Now I can also able to write GitHub Action Code in YMlF"
+            - uses: actions/checkout@v2
+            - run: tree 
+        
+     
