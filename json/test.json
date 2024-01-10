@@ -1,0 +1,14 @@
+{
+  "WHOAMI": {
+    "name": "Who am I",
+    "description": "This is a simple example of a skill that returns the user's name.",
+    "actions": [
+      {
+        "name": "whoami",
+        "description": "Returns the user's name.",
+        "type": "command",
+        "command": "whoami"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+name: Hello Github Actions
+
+on: [push] 
+jobs: 
+    print-hello-world:
+        runs-on: ubuntu-Latest
+        steps:
+            - run: Echo "Hello World!"
+            - run: "Now I can also able to write GitHub Action Code in YMlF"
